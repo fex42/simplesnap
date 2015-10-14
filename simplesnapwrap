@@ -124,7 +124,7 @@ if [ "$1" = "reinvoked" ]; then
        [ -z "$1" ] && exiterror "No template given."
         
        # We always save the most recent.
-       SNAPSTOREMOVE="`listsnaps \"${TEMPLATE}\" \"${DATASET}\" | head -n -1`"
+       SNAPSTOREMOVE="`listsnaps \"${TEMPLATE}\" \"${DATASET}\" | tail -n 1`"
        if [ -z "${SNAPSTOREMOVE}" ]; then
          logit "No snapshots to remove."
        else
